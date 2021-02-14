@@ -5,13 +5,13 @@ import os
 from flask import Flask, jsonify, make_response
 from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
-from routes import request_api
+# from routes import request_api
 
 APP = Flask(__name__)
 
 ### swagger specific ###
 SWAGGER_URL = '/QAswagger'
-API_URL = '/swagger.json'
+API_URL = '/static/swagger.json'
 SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
     SWAGGER_URL,
     API_URL,
@@ -59,7 +59,7 @@ if __name__ == '__main__':
                         help="Use flask debug/dev mode with file change reloading")
     ARGS = PARSER.parse_args()
 
-    PORT = int(os.environ.get('PORT', 8998))
+    PORT = int(os.environ.get('PORT', 2222))
 
     if ARGS.debug:
         print("Running in debug mode")
